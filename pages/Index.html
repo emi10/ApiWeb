@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroSite</title>
+    <link rel="stylesheet" href="Index.css">
+    <script src="IndexPublicacion.js" defer> </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="nav-item">Inicio</a>
+        <a href="#" class="nav-item">Buscar</a>
+        <a href="#" class="nav-logo">
+            <div class="logo"></div>
+        </a>
+        <a href="#" class="nav-item">Mensajes</a>
+        <a href="#" class="nav-item">Notificaciones</a>
+    </div>
+
+
+    <div class="sidebar">
+        <h2>...</h2>
+        <ul>
+            <li><a href="#"class="nav-item slide">Inicio</a></li>
+            <li><a href="#"class="nav-item slide">Perfil</a></li>
+            <li><a href="#"class="nav-item slide">Configuración</a></li>
+            <li><a href="SesionInicio.html"class="nav-item slide">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+
+    <div class="contenedorPublicaciones">
+
+        <form id="form-publicacion" class="publicacion">
+            <textarea id="texto-publicacion" name="body" placeholder="Escribe algo..."></textarea>
+            <input type="file" id="input-foto" name="foto" style="display: none;">
+            <label for="input-foto" class="btn-agregar-foto">Agregar Foto</label>
+            <button type="submit" class="btn-publicar">Publicar</button>
+        </form>
+        
+<!-- arriba de este comentario debe de estar el form el cual va a crear mas post -->
+<!-- en la zona de abaajo se debe de mostrar los post -->
+<div id="publicaciones">
+
+</div>
+        <!-- <div class="publicacion">
+            <div class="imagen">
+                <img src="https://c8.alamy.com/compes/2bp5yen/expresion-de-gato-sorprendido-como-un-gatito-asustado-o-un-animal-felino-asombrado-2bp5yen.jpg" alt="Imagen 1" style="width: 70%;">
+            </div>
+            <div class="interacciones">
+                <button class="like-btn">Me gusta</button>
+                <input type="text" placeholder="Añade un comentario...">
+            </div>
+        </div>
+
+    <div class="publicacion">
+        <div class="imagen">
+            <img src="https://c8.alamy.com/compes/2bp5yen/expresion-de-gato-sorprendido-como-un-gatito-asustado-o-un-animal-felino-asombrado-2bp5yen.jpg" alt="Imagen 2" style="width: 70%;">
+        </div>
+        <div class="texto">
+            <p>Texto de prueba</p>
+        </div>
+        <div class="interacciones">
+            <button class="like-btn">Me gusta</button>
+            <input type="text" placeholder="Añade un comentario...">
+        </div>
+    </div>
+
+    <div class="publicacion">
+        <div class="texto">
+            <p>Este es un texto de la tercera publicación.</p>
+        </div>
+        <div class="interacciones">
+            <button class="like-btn">Me gusta</button>
+            <input type="text" placeholder="Añade un comentario...">
+        </div>
+    </div> -->
+</div>
+<script>
+    document.getElementById('form-publicacion').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Crear un FormData para manejar datos del formulario, incluyendo archivos
+    var formData = new FormData(this);
+
+    // Añadir el 'authorId' y 'createdAt' si es necesario
+    formData.append('authorId', 'user-001');  // Suponiendo que tienes una manera de identificar al usuario
+    formData.append('createdAt', new Date().toISOString().split('T')[0]);
+
+    // Realizar la solicitud fetch para enviar los datos al servidor
+    fetch('http://localhost:8080/post', {
+        method: 'POST',
+        body: formData,  // Aquí se envía el formulario como FormData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Post creado:', data);
+        // Aquí podrías actualizar la UI para mostrar el nuevo post
+    })
+    .catch(error => console.error('Error al crear el post:', error));
+});
+</script>
+</body>
+</html>

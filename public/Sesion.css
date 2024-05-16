@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+    background-color: #282828;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    color: #fff;
+}
+
+h2{
+    color: #8a2be2;
+}
+
+.register-form {
+    text-align: center;
+    padding-right: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #282828;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 10vmax;
+}
+
+button:hover {
+    transition: .2s;
+    background-color: #fff;;
+    color: #333;
+}
+
+input{
+    background-color: #333;
+    color: #fff;
+}
+
+
+.navbar {
+    background-color: #282828;
+    display: flex;
+    /* position:fixed; */
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    box-shadow: 0 0 .25rem rgb(27, 27, 27);
+    margin-bottom: 2rem;
+}
+
+.nav-item {
+    color: #8a2be2;
+    text-decoration: none;
+    padding: 0 20px;
+    line-height: 60px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10vmax;
+    gap: 2rem;
+}
+
+.logo {
+    background-color: #8a2be2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
